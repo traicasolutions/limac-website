@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, Phone } from 'lucide-react'
 import { NAV_LINKS, LIMAC } from '@/lib/constants'
+import { withBasePath } from '@/lib/basePath'
 import MobileMenu from './MobileMenu'
 import ThemeToggle from '@/components/common/ThemeToggle'
 
@@ -57,7 +58,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-2.5 group">
               <div className="logo-highlight relative overflow-hidden rounded-md p-1.5 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_26px_rgba(180,230,50,0.32)]">
                 <Image
-                  src="/logo.webp"
+                  src={withBasePath('/logo.webp')}
                   alt="Limac Power Tech Logo"
                   width={108}
                   height={45}

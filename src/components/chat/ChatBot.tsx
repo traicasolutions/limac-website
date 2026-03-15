@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { MessageSquare, X, Send, Loader2, Bot } from 'lucide-react'
 import { LIMAC } from '@/lib/constants'
+import { withBasePath } from '@/lib/basePath'
 import type { ChatMessage } from '@/lib/types'
 
 export default function ChatBot() {
@@ -94,7 +95,7 @@ export default function ChatBot() {
               <div className="w-8 h-8 bg-limac-green/20 border border-limac-green/40 rounded-full flex items-center justify-center">
                 {botImageAvailable ? (
                   <Image
-                    src="/bot.png"
+                    src={withBasePath('/bot.png')}
                     alt="Chat bot"
                     width={22}
                     height={22}
@@ -199,7 +200,7 @@ export default function ChatBot() {
           <X size={20} />
         ) : botImageAvailable ? (
           <Image
-            src="/bot.png"
+            src={withBasePath('/bot.png')}
             alt="Open chat"
             width={48}
             height={48}

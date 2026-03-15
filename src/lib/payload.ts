@@ -1,6 +1,7 @@
 import path from 'path'
 import { promises as fs } from 'fs'
 import type { BlogPost, Product } from './types'
+import { withBasePath } from './basePath'
 
 type PayloadList<T> = {
   docs: T[]
@@ -149,7 +150,7 @@ const findLocalImageURL = (productName: string, csvImageName: string, files: str
     files.find((file) => normalizeImageLookupName(file) === productKey) ||
     files.find((file) => normalizeImageLookupName(file).includes(productKey))
 
-  return chosenFile ? `/product/${chosenFile}` : undefined
+  return chosenFile ? withBasePath(`/product/${chosenFile}`) : undefined
 }
 
 const mapCsvRowToProduct = (

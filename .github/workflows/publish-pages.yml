@@ -32,6 +32,7 @@ jobs:
         env:
           PRODUCT_DATA_SOURCE: csv
           STATIC_EXPORT: 'true'
+          NEXT_PUBLIC_BASE_PATH: /limac-website
           NEXT_PUBLIC_SITE_URL: https://traicasolutions.github.io/limac-website
 
       - name: Deploy to GitHub Pages

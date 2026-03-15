@@ -1,15 +1,15 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 
 const isStaticExport = process.env.STATIC_EXPORT === 'true'
+const staticBasePath = process.env.NEXT_PUBLIC_BASE_PATH || '/limac-website'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    basePath: process.env.NEXT_PUBLIC_SITE_URL?.includes('github.io') ? '/limac-website' : '',
   images: { unoptimized: true },
   ...(isStaticExport
     ? {
         output: 'export',
-        basePath: '/limac-website',
+        basePath: staticBasePath,
         trailingSlash: true,
       }
     : {}),

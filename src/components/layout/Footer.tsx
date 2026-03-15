@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, Facebook, ExternalLink } from 'lucide-react'
 import { LIMAC, NAV_LINKS, PRODUCT_CATEGORIES } from '@/lib/constants'
+import { withBasePath } from '@/lib/basePath'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -16,7 +17,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2.5 mb-4 group">
               <div className="logo-highlight rounded-md overflow-hidden p-1.5 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_26px_rgba(180,230,50,0.32)]">
                 <Image
-                  src="/logo.webp"
+                  src={withBasePath('/logo.webp')}
                   alt="Limac Power Tech Logo"
                   width={108}
                   height={45}

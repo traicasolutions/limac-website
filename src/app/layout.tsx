@@ -4,6 +4,10 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/common/WhatsAppButton'
 import ChatBot from '@/components/chat/ChatBot'
+import { withBasePath } from '@/lib/basePath'
+
+const logoPath = withBasePath('/logo.webp')
+const ogImagePath = withBasePath('/og-image.jpg')
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.limac.in'),
@@ -24,9 +28,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Limac Power Tech' }],
   creator: 'Limac Power Tech',
   icons: {
-    icon: '/logo.webp',
-    shortcut: '/logo.webp',
-    apple: '/logo.webp',
+    icon: logoPath,
+    shortcut: logoPath,
+    apple: logoPath,
   },
   openGraph: {
     type: 'website',
@@ -38,7 +42,7 @@ export const metadata: Metadata = {
       'Premium LiFePO4 batteries for solar, motorcycles, and homes. Trusted by 500+ customers in Kerala since 2018.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: ogImagePath,
         width: 1200,
         height: 630,
         alt: 'Limac Power Tech — LiFePO4 Batteries Kerala',

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { X, Phone, MessageCircle } from 'lucide-react'
 import { NAV_LINKS, LIMAC } from '@/lib/constants'
+import { withBasePath } from '@/lib/basePath'
 import ThemeToggle from '@/components/common/ThemeToggle'
 
 interface MobileMenuProps {
@@ -41,7 +42,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className="flex items-center gap-2">
             <div className="logo-highlight rounded-md overflow-hidden p-1.5">
               <Image
-                src="/logo.webp"
+                src={withBasePath('/logo.webp')}
                 alt="Limac Power Tech Logo"
                 width={84}
                 height={36}
