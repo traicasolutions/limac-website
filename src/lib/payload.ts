@@ -149,7 +149,7 @@ const findLocalImageURL = (productName: string, csvImageName: string, files: str
     files.find((file) => normalizeImageLookupName(file) === productKey) ||
     files.find((file) => normalizeImageLookupName(file).includes(productKey))
 
-  return chosenFile ? `/product/${encodeURIComponent(chosenFile)}` : undefined
+  return chosenFile ? `/product/${chosenFile}` : undefined
 }
 
 const mapCsvRowToProduct = (

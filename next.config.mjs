@@ -4,12 +4,12 @@ const isStaticExport = process.env.STATIC_EXPORT === 'true'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: { unoptimized: true },
   ...(isStaticExport
     ? {
         output: 'export',
         basePath: '/limac-website',
         trailingSlash: true,
-        images: { unoptimized: true },
       }
     : {}),
 }
