@@ -4,6 +4,7 @@ const isStaticExport = process.env.STATIC_EXPORT === 'true'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    basePath: process.env.NEXT_PUBLIC_SITE_URL?.includes('github.io') ? '/limac-website' : '',
   images: { unoptimized: true },
   ...(isStaticExport
     ? {
