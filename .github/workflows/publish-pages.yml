@@ -39,6 +39,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
+          enable_jekyll: false
 
       - name: Output Deployment URL
         run: echo "Deployed to https://traicasolutions.github.io/limac-website/"
