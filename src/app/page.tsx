@@ -7,9 +7,6 @@ import LatestBlogPosts from '@/components/home/LatestBlogPosts'
 import Testimonials from '@/components/home/Testimonials'
 import ContactStrip from '@/components/home/ContactStrip'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
-
 export const metadata: Metadata = {
   title: "Limac",
   description:

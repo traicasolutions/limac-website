@@ -9,24 +9,36 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
       - name: Install dependencies
-        run: |
-          npm install --legacy-peer-deps
+        run: npm install --legacy-peer-deps
+
+      - name: Hide server-only API routes
+        run: mv src/app/api src/app/_api
 
       - name: Build
-        run: |
-          npm run build
+        run: npm run build
+        env:
+          PRODUCT_DATA_SOURCE: csv
+          STATIC_EXPORT: 'true'
+          NEXT_PUBLIC_SITE_URL: https://traicasolutions.github.io/limac-website
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./out
 
       - name: Output Deployment URL
-        run: |
-          echo "Deployed to GitHub Pages: https://<USERNAME>.github.io/<REPO>/"
+        run: echo "Deployed to https://traicasolutions.github.io/limac-website/"

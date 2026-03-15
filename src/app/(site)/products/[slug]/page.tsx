@@ -8,8 +8,10 @@ import EnquiryForm from '@/components/forms/EnquiryForm'
 import { PRODUCT_CATEGORIES } from '@/lib/constants'
 import { getProductBySlug, getProducts } from '@/lib/payload'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export async function generateStaticParams() {
+  const products = await getProducts()
+  return products.map((p) => ({ slug: p.slug }))
+}
 
 interface ProductPageProps {
   params: { slug: string }

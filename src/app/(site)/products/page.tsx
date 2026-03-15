@@ -6,9 +6,6 @@ import Badge from '@/components/common/Badge'
 import { PRODUCT_CATEGORIES } from '@/lib/constants'
 import { getProducts } from '@/lib/payload'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
-
 export const metadata: Metadata = {
   title: 'Our Products',
   description:

@@ -1,6 +1,19 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+const isStaticExport = process.env.STATIC_EXPORT === 'true'
 
-export default withPayload(nextConfig)
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  ...(isStaticExport
+    ? {
+        output: 'export',
+        basePath: '/limac-website',
+        trailingSlash: true,
+        images: { unoptimized: true },
+      }
+    : {}),
+}
+
+// Skip withPayload during static export — Payload's REST API routes are
+// incompatible with output:'export' and are not needed on GitHub Pages.
+export default isStaticExport ? nextConfig : withPayload(nextConfig)
